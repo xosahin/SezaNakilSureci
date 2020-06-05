@@ -1,95 +1,44 @@
 <mvc:View controllerName="SezaNakilSureci.SezaNakilSureci.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
-    xmlns:core="sap.ui.core" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable" displayBlock="true">
-	<Page class="sapUiResponsiveContentPadding">
-<!--		<customHeader>
-						<Bar>
-				<contentLeft>
-					<Button icon="sap-icon://nav-back" type="Transparent" press="onNavBack"/>
-				</contentLeft>
-				<contentMiddle>
-					<Title text="Çalışan Bilgileri Değistirme ( Yönetici Self Servis )"/>
-				</contentMiddle>
-				<contentRight>
-					<Button icon="sap-icon://home" type="Transparent" press="onPressHome" ariaLabelledBy="editButtonLabel"/>
-				</contentRight>
-			</Bar>
-		</customHeader>
-		<!--		<smartFilterBar:SmartFilterBar id="smartFilterBarEmpInfoSearch" search="handleSearchUsers" useToolbar="false" useDateRangeType="true"
-			showFilterConfiguration="false" entitySet="EmployeeYSSSet">
-			<smartFilterBar:controlConfiguration groupName="Search Parameters">
-				<smartFilterBar:ControlConfiguration label="İsim" key="Vorna" hasValueHelpDialog="true" visibleInAdvancedArea="true"
-					preventInitialDataFetchInValueHelpDialog="true"/>
-				<smartFilterBar:ControlConfiguration hasValueHelpDialog="true" label="Soyisim" key="Nachn" visible="true" visibleInAdvancedArea="true"
-					preventInitialDataFetchInValueHelpDialog="false"/>-->
-		<!--<smartFilterBar:ControlConfiguration label="Çalışma Yeri" key="Zzcalyr" hasValueHelpDialog="true" visibleInAdvancedArea="true"-->
-		<!--	preventInitialDataFetchInValueHelpDialog="false"/>-->
-		<!--<smartFilterBar:ControlConfiguration label="HR Grup" key="Orgeh" hasValueHelpDialog="true" visibleInAdvancedArea="true"-->
-		<!--	preventInitialDataFetchInValueHelpDialog="false"/>-->
-		<!--			</smartFilterBar:controlConfiguration>
-		</smartFilterBar:SmartFilterBar>-->
-		<smartTable:SmartTable entitySet="NakilGetSet" id="NakilSearch" enableAutoBinding="true" tableType="ResponsiveTable"
-			editable="false" editTogglable="false" useExportToExcel="true" useVariantManagement="false" useTablePersonalisation="true"
-			smartFilterId="smartFilterBarEmpInfoSearch" header="Nakil Süreci" showRowCount="true" class="sapUiResponsiveContentPadding"
-			initiallyVisibleFields="Sto" requestAtLeastFields="Sto">
-			<Table growing="true" growingThreshold="30" class="projectList">
-				<columns>
-					<Column hAlign="Center">
-						<customData>
-							<core:CustomData key="p13nData" value='\{"columnKey": "Sto","leadingProperty": "Sto", "sortProperty": "Sto", "filterProperty": "Sto"}'/>
-						</customData>
-						<header>
-							<Text text="STO"/>
-						</header>
-					</Column>
-					<!--			<Column hAlign="Center">
-						<customData>
-							<core:CustomData key="p13nData"
-								value='\{"columnKey": "Vorna","leadingProperty": "Vorna", "sortProperty": "Vorna", "filterProperty": "Vorna"}'/>
-						</customData>
-						<header>
-							<Text text="Ad"/>
-						</header>
-					</Column>
-					<Column hAlign="Center">
-						<customData>
-							<core:CustomData key="p13nData"
-								value='\{"columnKey": "Nachn","leadingProperty": "Nachn", "sortProperty": "Nachn", "filterProperty": "Nachn"}'/>
-						</customData>
-						<header>
-							<Text text="Soyad"/>
-						</header>
-					</Column>
-					<Column hAlign="Center">
-						<customData>
-							<core:CustomData key="p13nData"
-								value='\{"columnKey": "Orgtx","leadingProperty": "Orgtx", "sortProperty": "Orgtx", "filterProperty": "Orgtx"}'/>
-						</customData>
-						<header>
-							<Text text="Organizasyon Birimi"/>
-						</header>
-					</Column>
-					<Column hAlign="Center">
-						<customData>
-							<core:CustomData key="p13nData"
-								value='\{"columnKey": "Plstx","leadingProperty": "Plstx", "sortProperty": "Plstx", "filterProperty": "Plstx"}'/>
-						</customData>
-						<header>
-							<Text text="Pozisyon"/>
-						</header>
-					</Column>-->
-				</columns>
-				<items>
-					<ColumnListItem type="Active" press="handleEmployeePress">
-						<cells>
-							<Text text="{Sto}"/>
-							<!--							<Text text="{Nachn}"/>
-							<Text text="{Orgtx}"/>
-							<Text text="{Plstx}"/>-->
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
-		</smartTable:SmartTable>
-	</Page>
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<App>
+		<Page class="sapUiResponsiveContentPadding">
+			<customHeader>
+				<Bar>
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" type="Transparent" press="onNavBack"/>
+					</contentLeft>
+					<contentMiddle>
+						<Title text="Nakil Süreci"/>
+					</contentMiddle>
+					<contentRight>
+						<Button icon="sap-icon://home" type="Transparent" press="onPressHome" ariaLabelledBy="editButtonLabel"/>
+					</contentRight>
+				</Bar>
+			</customHeader>
+			<smartFilterBar:SmartFilterBar id="smartFilterBar" search="handleSearch" useToolbar="false" useDateRangeType="true"
+				showFilterConfiguration="false" entitySet="NakilGetSet">
+				<smartFilterBar:controlConfiguration groupName="Search Parameters">
+					<smartFilterBar:ControlConfiguration key="Matnr" hasValueHelpDialog="true" visibleInAdvancedArea="true"
+						preventInitialDataFetchInValueHelpDialog="true" displayBehaviour="descriptionOnly" filterType="single"/>
+					<smartFilterBar:ControlConfiguration hasValueHelpDialog="true" label="İşlem Tipi" key="IslemTip" visible="true" visibleInAdvancedArea="true"
+						preventInitialDataFetchInValueHelpDialog="false" displayBehaviour="descriptionOnly" controlType="dropDownList" filterType="single"
+						/>
+				</smartFilterBar:controlConfiguration>
+			</smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable entitySet="NakilGetSet" id="NakilSearch" enableAutoBinding="true" editable="true" editTogglable="false"
+				useExportToExcel="true" persistencyKey="SmartTablePKey" useVariantManagement="true" useTablePersonalisation="true"
+				smartFilterId="smartFilterBar" header="Nakil Süreci" showRowCount="true" class="sapUiResponsiveContentPadding"
+				initiallyVisibleFields="Sto,Werks,Lgort,Matnr,Maktx,Ebeln,Miktar,Meins,Plaka,Tckn,Sofor,Naklyc,Vagon,Kont1,Kont2,McBelge,TkBelge,MgBelgeIslemTip"
+				requestAtLeastFields="Sto,IslemTip,Matnr" app:useSmartField="true">
+				<smartTable:customToolbar>
+					<OverflowToolbar design="Transparent">
+						<ToolbarSpacer/>
+						<OverflowToolbarButton icon="sap-icon://car-rental" text="Plaka Oluştur" press="onCreatePlate" tooltip="Plaka Oluştur"/>
+						<OverflowToolbarButton icon="sap-icon://save" text="Kaydet" press="onSave" tooltip="Kaydet"/>
+					</OverflowToolbar>
+				</smartTable:customToolbar>
+			</smartTable:SmartTable>
+		</Page>
+	</App>
 </mvc:View>

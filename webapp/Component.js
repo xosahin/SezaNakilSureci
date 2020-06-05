@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"SezaNakilSureci/SezaNakilSureci/model/models"
-], function (UIComponent, Device, models) {
+	"SezaNakilSureci/SezaNakilSureci/model/models",
+	"./helper/MessageHandler"
+], function (UIComponent, Device, models, MessageHandler) {
 	"use strict";
 
 	return UIComponent.extend("SezaNakilSureci.SezaNakilSureci.Component", {
@@ -25,6 +26,8 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			
+			this.MessageHandler = new MessageHandler(this);
 		}
 	});
 });

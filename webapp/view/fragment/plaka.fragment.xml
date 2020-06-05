@@ -1,0 +1,50 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+ 
+    <Dialog title = "Plaka Oluştur">
+    <l:Grid defaultSpan = "L12 M12 S12" width = "auto" id = "idGrid">
+    <l:content>
+        <f:SimpleForm id="SimpleFormDisplay354" 
+            minWidth="1024"
+            maxContainerCols="2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Plaka"
+            labelSpanL="3"
+            labelSpanM="3"
+            emptySpanL="4"
+            emptySpanM="4"
+            columnsL="2"
+            columnsM="2">
+            <f:content>
+                <Label text="Plaka" />
+                <Input id = "plaka"/>
+             
+                <Label text="Toplam Ağırlık" />
+                <Input id = "topAgirlik"/>
+             
+                <Label text="Birim" />
+                <Input id = "birim"/>
+             
+                <Label text="Nakliyeci" />
+                <Input id = "nakliyeci"/>
+             
+                <Label text="Ruhsat Sahibi" />
+                <Input id = "ruhsatSahibi"/>
+                
+                <Label text="TC Kimlik No" />
+                <Input id = "tckn"/>                
+                
+            </f:content>
+        </f:SimpleForm>
+    </l:content>
+    </l:Grid>
+    <buttons>
+    <Button text = "CLOSE" press = "closeDialog" type = "Reject"/>
+    <Button text = "SAVE" press = "onPlateSave" type = "Accept"/>
+    </buttons>
+    </Dialog>
+</core:FragmentDefinition>
